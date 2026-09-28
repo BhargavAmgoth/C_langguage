@@ -1,0 +1,462 @@
+// Calculating the avarage
+#include <stdio.h>
+
+#define ARR_SIZE(X)   (sizeof(X) / sizeof(X[0]))
+
+
+int main() {
+   int arr[] = {2,4,5,7,8,5,3,6};
+   
+   int avarage = 0;
+   for(int i=0; i<ARR_SIZE(arr); i++)
+   {
+       avarage += arr[i];
+        printf("The average %d \n", avarage);
+   }
+   avarage = avarage / ARR_SIZE(arr);
+   printf("The  %d \n", 40/8);
+   printf("The average is %d ", avarage);
+
+    return 0;
+}
+
+
+///////////////////////////////////////////////////
+
+
+// Find large number and secound large in an array
+#include <stdio.h>
+
+#define ARR_SIZE(X)   (sizeof(X) / sizeof(X[0]))
+
+
+int main() {
+   int arr[] = {2,4,5,7,8,5,3,6};
+   
+   int large = arr[0];
+   int s_large = arr[0];
+   for(int i=0; i<ARR_SIZE(arr); i++)
+   {
+      if(large < arr[i])
+      {
+          s_large = large;
+          large = arr[i];
+      }
+   }
+   
+    printf("The large num is %d and the secound large is %d", large, s_large);
+    return 0;
+}
+
+
+////////////////////////////////////////////////////
+
+
+// copy all elements 
+#include <stdio.h>
+
+#define ARR_SIZE(X)   (sizeof(X) / sizeof(X[0]))
+
+
+int main() {
+   int arr[] = {2,4,5,7,8,5,3,6};
+ 
+  int size = ARR_SIZE(arr);
+    int *arry  = arr; //[size];
+   for(int i=0; i<size; i++)
+   {
+     arry[i] = arr[i];
+   }
+    printf("{ ");
+   for(int i=0; i<size; i++)
+   {
+       printf("%d ", arry[i]);
+   }
+   printf("}");
+    return 0;
+}
+
+
+/////////////////////////////////////////////////////
+
+
+
+// Merge two elements 
+#include <stdio.h>
+
+#define ARR_SIZE(X)   (sizeof(X) / sizeof(X[0]))
+
+
+int main() {
+   int arr[] = {1,2,3,4,5,6,7,8};
+    int arr2[] = {11,12};
+  int size = ARR_SIZE(arr);
+  int size2 = ARR_SIZE(arr2);
+  
+  int merge_arr[size+size2];
+
+//printf("%d ad", arr[size-1]);
+
+for(int i=0; i<size+size2; i++)
+{
+    
+    if(size<=i)
+    {
+        printf("size2 %d \n", i);
+       merge_arr[i] = arr2[i-size]; 
+    }
+    else {
+         printf("%d \n", i);
+        merge_arr[i] = arr[i]; 
+    }
+    
+}
+    printf("{ ");
+    for(int i=0; i<size+size2; i++)
+    {
+        printf("%d ", merge_arr[i]);
+    }
+   printf("}");
+    return 0;
+}
+
+
+
+////////////////////////////////////////////////////////////////
+
+
+
+// merge all elements in two arrays
+#include <stdio.h>
+
+#define ARR_SIZE(X)   (sizeof(X) / sizeof(X[0]))
+
+
+int main() {
+   int arr[] = {1,2,3,4,5,6,7,8};
+    int arr2[] = {11,12};
+  int size = ARR_SIZE(arr);
+  int size2 = ARR_SIZE(arr2);
+  
+  int merge_arr[size+size2];
+
+//printf("%d ad", arr[size-1]);
+
+for(int i=0; i<size; i++)
+{
+         printf("%d \n", i);
+        merge_arr[i] = arr[i]; 
+}
+
+for(int i=0; i<size2; i++)
+{
+         printf("%d \n", i);
+        merge_arr[size+i] = arr2[i]; 
+}
+
+    printf("{ ");
+    for(int i=0; i<size+size2; i++)
+    {
+        printf("%d ", merge_arr[i]);
+    }
+   printf("}");
+    return 0;
+}
+
+
+
+/////////////////////////////////////////////////////////
+
+// finding a number (linear search)
+#include <stdio.h>
+
+int main() 
+{
+    int size, num = 7;
+    
+    printf("Enter the size of an array :\n");
+    scanf("%d", &size);
+    int arr[size];
+    printf("Enter the elements of an array :\n");
+    
+    for(int i=0; i<size; i++)
+    {
+       scanf("%d", &arr[i]); 
+    }
+    printf("{");
+    for(int i=0; i<size; i++)
+    {
+       printf(" %d", arr[i]); 
+    }
+    printf(" }");
+    
+    int flag = 1;
+    for(int i=0; i<size; i++)
+    {
+       if(num == arr[i])
+       {
+           flag = 0;
+           printf("\nThe number is present in the arry at the index : %d", i);
+       }
+       else 
+       {
+         flag += 1;  
+       }
+    }
+    
+    if(flag == 0)
+    {
+        printf("\nThe number is not present in the arry");
+    }
+    
+    
+    
+    
+    return 0;
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
+// 3D array printing the data
+#include <stdio.h>
+
+#define ARR_SIZE(X) (( sizeof(X)/ sizeof(X[0]) ))
+
+int main() {
+    int arr[2][3][4] = { 
+    {
+ 	{9,8,7,6}, 
+	{5,6,7,8}, 
+	{1,2,3,4} 
+    } , 
+    { 
+	{29,28,27,22}, 
+	{15,16,17,13} ,
+ 	{11,23,4,56} 
+    }
+			};
+    
+    int *ptr;
+    ptr = (int *)arr;
+    
+    // int a 
+    // ptr = &a;
+    
+    int len = ARR_SIZE(arr);
+    printf("\n The size of an array is %d", len);
+   // for(int )
+    
+    return 0;
+}
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
+// Matrix multiplication
+#include <stdio.h>
+
+int main() {
+    int r1,c1,r2,c2;
+    
+    printf("Enter rows and columns of first matrix: ");
+    scanf("%d %d", &r1,&c1);
+    printf("Enter rows and columns of secound matrix: ");
+    scanf("%d %d", &r2,&c2);
+    
+    if (c1 != r2) {
+        printf("Matrix multiplication not possible.\n");
+        return 0;
+    }
+    
+    int a[r1][c1], b[r2][c2], res[r1][c2];
+    
+    printf("Enter elements of second matrix:\n");
+    for(int i=0; i<r1; i++)
+    {
+        for(int j=0; j<c1; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+    
+    for(int i=0; i<r1; i++)
+    {
+        for(int j=0; j<c1; j++)
+        {
+            scanf("%d", &b[i][j]);
+        }
+    }
+    
+ 
+    for(int i=0; i<r1; i++)
+    {
+        for(int j=0; j<c2; j++)
+        {
+            res[i][j] = 0;
+            for(int k=0; k<c1; k++)
+            {
+                res[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+
+    printf("Resultant matrix:\n");
+    for (int i = 0; i < r1; i++) 
+    {
+        for (int j = 0; j < c2; j++)
+        {
+             printf("%d ", res[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+
+
+///////////////////////////////////////////////////////////////////
+
+
+// Matrix multiplication
+#include <stdio.h>
+
+int main() {
+    int r1,c1,r2,c2;
+    
+    printf("Enter rows and columns of first matrix: ");
+    scanf("%d %d", &r1,&c1);
+    printf("Enter rows and columns of secound matrix: ");
+    scanf("%d %d", &r2,&c2);
+    
+    if (c1 != r2) {
+        printf("Matrix multiplication not possible.\n");
+        return 0;
+    }
+    
+    int a[r1][c1], b[r2][c2], res[r1][c2];
+    
+    printf("Enter elements of first matrix:\n");
+    for(int i=0; i<r1; i++)
+    {
+        for(int j=0; j<c1; j++)
+        {
+            scanf("%d", &a[i][j]);
+        }
+    }
+      printf("Enter elements of second matrix:\n");
+    for(int i=0; i<r1; i++)
+    {
+        for(int j=0; j<c1; j++)
+        {
+            scanf("%d", &b[i][j]);
+        }
+    }
+     printf("First matrix\n");
+    for(int i=0; i<r1; i++)
+    {
+        for(int j=0; j<c1; j++)
+        {
+            printf("%d ", a[i][j]);
+        }
+        printf("\n");
+    }
+    printf("Secound matrix\n");
+    for(int i=0; i<r1; i++)
+    {
+        for(int j=0; j<c1; j++)
+        {
+            printf("%d ", b[i][j]);
+        }
+        printf("\n");
+    }
+    
+ 
+    for(int i=0; i<r1; i++)
+    {
+        for(int j=0; j<c2; j++)
+        {
+            res[i][j] = 0;
+            for(int k=0; k<c1; k++)
+            {
+                res[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+
+    printf("Resultant matrix:\n");
+    for (int i = 0; i < r1; i++) 
+    {
+        for (int j = 0; j < c2; j++)
+        {
+             printf("%d ", res[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////
+
+
+// assending and dissending order 
+#include <stdio.h>
+
+#define p printf
+#define s scanf
+#define  Arr_size(X) ( (sizeof(X))/(sizeof(X[0])) )
+
+int main() {
+    int ary[] = {1,2,3,4,5,6,7,8,9};
+    int *ptr = ary;
+    for(int i=0; i<Arr_size(ary); i++)
+    {
+        p("%d ", ary[i]);
+    }
+
+    for(int i=0; i<Arr_size(ary); i++)
+    {
+        for(int j=0; j<Arr_size(ary); j++)
+        {
+            if(ary[i] > ary[j])
+            {
+                int temp = ary[i];
+                ary[i] = ary[j];
+                ary[j] = temp;
+            }
+        }
+    }
+    printf("\n");
+    for(int i=0; i<Arr_size(ary); i++)
+    {
+        p("%d ", ary[i]);
+    }
+    
+    return 0;
+}
+
+
+//////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+

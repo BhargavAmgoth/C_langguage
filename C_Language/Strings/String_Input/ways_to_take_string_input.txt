@@ -1,0 +1,48 @@
+STRING INPUT METHODS IN C
+=========================
+
+Start with these basic methods:
+
+1. Read one word with scanf("%99s", str)
+   Example: input_using_scanf_with_width.c
+   Stops at whitespace. The width must be one less than the array size.
+
+2. Read a whole line with fgets(str, sizeof str, stdin)
+   Example: input_using_fgets.c
+   Reads spaces and bounds the input. It may keep the newline if it fits.
+   This is usually the best choice for interactive line input.
+
+3. Read one character at a time with getchar(), getc(), or fgetc()
+   Examples: input_using_getchar_loop.c, input_using_getc_fgetc.c
+   These return int so EOF can be checked. Add the final '\0' yourself and
+   check that every stored character fits in the array.
+
+Other useful input forms:
+
+Method / purpose                         Example
+---------------------------------------  ------------------------------------
+Basic bounded scanf input (one word)     input_using_scanf.c
+Small array with a field width           input_using_scanf_with_width.c
+scanf scanset (line until newline)       input_using_scanset.c
+fgets followed by sscanf (parse fields)  input_using_sscanf.c
+Read several lines into a 2D array       input_multiple_strings.c
+Read command-line arguments              input_using_command_line_args.c
+Read lines from a file                   input_from_file.c
+Allocate a buffer that grows             input_using_dynamic_memory.c
+Mix numeric scanf and a following line   input_after_scanf_newline_problem.c
+Safe replacement / explanation of gets   input_using_gets_unsafe.c
+
+Important points:
+
+- For scanf("%s", str), do not use '&' before an array name. Use a width,
+  such as %99s for char str[100], to leave room for the terminating '\0'.
+- %s stops at whitespace. A scanset such as %99[^\n] can include spaces,
+  but fails on an empty line and leaves the newline in the input stream.
+- fgets() is bounded by the buffer size. Remove a stored newline with
+  str[strcspn(str, "\r\n")] = '\0'.
+- gets() has no way to limit input and was removed in C11. Never call it;
+  input_using_gets_unsafe.c uses fgets() to demonstrate the safe alternative.
+- Do not use fflush(stdin); its behavior is undefined in standard C.
+- getchar(), getc(), and fgetc() return int so they can represent EOF.
+- After scanf("%d", &number), the newline usually remains. Consume the rest
+  of that line before calling fgets(), or read the line with fgets() first.

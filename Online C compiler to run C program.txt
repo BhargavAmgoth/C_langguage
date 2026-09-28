@@ -1,0 +1,119 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+int sum_num();
+int main() {
+    int a = 5;
+    printf("%d", sum_num(a));
+    return 0;
+}
+
+int sum_num(int a)
+{
+    
+    if(a == 0)
+    {
+         return 0; 
+    }
+       
+    return a + sum_num(a-1); 
+}
+
+
+#include <stdio.h>
+int sum_num();
+int main() {
+    int total_sum = sum_num();
+    
+    printf("The sum of the first 100 natural numbers is: %d\n", total_sum);
+    
+    return 0;
+}
+
+int sum_num()
+{
+    static int n = 100;
+    if(n == 0)
+    {
+         return 0; 
+    }
+    int current_n = n;
+    n--;
+    return current_n + sum_num(); 
+}
+
+
+// Online C compiler to run C program online
+
+//set, clear, toggle, mask
+#include <stdio.h>
+
+// #define set_bit(n,pos) (n |= (1<<pos))
+// #define cler_bit(n,pos) (n = (1<<pos))
+
+int set_bit(int n, int pos);
+int clear_bit(int n, int pos);
+int toggle_bit(int n, int pos);
+int mask_bit(int n, int pos);
+int check_bit(int n, int pos);
+
+int main() {
+    int pos = 2;
+    int num = 5;
+    printf("Setting a bit %d \n", set_bit(num, pos));
+    return 0;
+}
+
+//111
+
+int set_bit(int n, int pos)
+{  
+    if(!check_bit(n,pos))
+    {
+       // printf("Setting\n");
+         n |=  (1 << (pos));
+    }
+
+    return n;
+  
+}
+
+int check_bit(int n, int pos)
+{
+     printf("%d \n", (n >> pos) & 1);
+    return (n >> pos) & 1;
+}
+
+//0101
+//0010
+
+// Online C compiler to run C program online
+#include <stdio.h>
+
+#define ARR_SIZE(X) (( sizeof(X)/ sizeof(X[0]) ))
+
+int main() {
+    int arr[2][3][4] = { 
+    {
+ 	{9,8,7,6}, 
+	{5,6,7,8}, 
+	{1,2,3,4} 
+    } , 
+    { 
+	{29,28,27,22}, 
+	{15,16,17,13} ,
+ 	{11,23,4,56} 
+    }
+			};
+    
+    int *ptr;
+    ptr = (int *)arr;
+    
+    // int a 
+    // ptr = &a;
+    
+    int len = ARR_SIZE(arr);
+    printf("\n The size of an array is %d", len);
+   // for(int )
+    
+    return 0;
+}
